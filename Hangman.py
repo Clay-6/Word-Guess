@@ -1,16 +1,7 @@
 from random import randint
 
 
-def main():
-    with open(
-        "AllowedWords.txt",
-        "r",
-    ) as words:
-        wordlist = words.readlines()
-        word = wordlist[randint(0, len(wordlist))].lower()
-    letters = list(word)
-    letters.sort()
-
+def Game(word, letters):
     allowed_fails = int(input("How many fails do you want to allow before losing? "))
     attempts = 0
     correct_letters = []
@@ -38,8 +29,17 @@ def main():
         print(f"You ran out of fails. The word was {word}")
 
 
+def main():
+    with open("AllowedWords.txt") as words:
+        wordlist = words.readlines()
+        word = wordlist[randint(0, len(wordlist))].lower()
+    letters = list(word)
+    letters.sort()
+    Game(word, letters)
+
+
 if __name__ == "__main__":
-    print("Welcome to Hangman! Remember to guess double letters twice.\n")
+    print("Welcome to Hangman!\n--------------------")
     main()
     retry = input("Do you want to play again? (y/n)")
     if retry == "y":
