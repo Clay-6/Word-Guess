@@ -1,3 +1,4 @@
+from audioop import add
 from random import randint
 
 
@@ -12,7 +13,9 @@ def Game(word, letters):
         guess = input("Guess a letter: ").lower()
         attempts += 1
         if guess in letters:
-            correct_letters.append(guess)
+            add_number = letters.count(guess)
+            for n in range(add_number):
+                correct_letters.append(guess)
             correct_letters.sort()
             print("Correct!\n")
         else:
@@ -29,12 +32,17 @@ def Game(word, letters):
         print(f"You ran out of fails. The word was {word}")
 
 
-def main():
+def GetWordList():
     with open("AllowedWords.txt") as words:
         wordlist = words.readlines()
         word = wordlist[randint(0, len(wordlist))].lower()
     letters = list(word)
     letters.sort()
+    return word, letters
+
+
+def main():
+    word, letters = GetWordList()
     Game(word, letters)
 
 
