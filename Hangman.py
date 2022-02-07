@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Hangman:
     def GetWordList():
         with open("AllowedWords.txt") as words:
@@ -8,9 +9,11 @@ class Hangman:
         letters = list(word)
         letters.sort()
         return word, letters
-    
+
     def Play(word, letters):
-        allowed_fails = int(input("How many fails do you want to allow before losing? "))
+        allowed_fails = int(
+            input("How many fails do you want to allow before losing? ")
+        )
         attempts = 0
         correct_letters = []
         guessed_letters = []
@@ -38,10 +41,8 @@ class Hangman:
             print(f"You ran out of fails. The word was {word}")
 
 
-
-
 def main():
-    word, letters= Hangman.GetWordList()
+    word, letters = Hangman.GetWordList()
     Hangman.Play(word, letters)
 
 
