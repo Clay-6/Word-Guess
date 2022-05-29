@@ -1,4 +1,4 @@
-# Hangman
+# Word Guess
 
 A simple word guessing game in the terminal
 
