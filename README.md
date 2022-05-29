@@ -1,11 +1,7 @@
 # Hangman
 
-## Info
+A simple Hangman game in the terminal
 
-Just a simple command-line hangman type game.
+## Usage
 
-Use AllowedWords.txt to change which words can be chosen, enter each wor on a new line
-
-## Credits
-
-Everything - Me
+Use AllowedWords.txt to change which words can be chosen, enter each word on a new line
